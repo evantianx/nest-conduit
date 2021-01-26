@@ -13,3 +13,7 @@ export class RegisterDTO extends LoginDTO {
   @Length(4, 20)
   username: string;
 }
+
+export interface AuthPayload {
+  username: string;
+}
