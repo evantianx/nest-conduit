@@ -14,13 +14,13 @@ export class AuthController {
 
   @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
   @Post()
-  register(@Body() credentials: RegisterDTO) {
-    return this.authService.register(credentials);
+  register(@Body() credentials: { user: RegisterDTO }) {
+    return this.authService.register(credentials.user);
   }
 
   @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
   @Post('/login')
-  login(@Body() credentials: LoginDTO) {
-    return this.authService.login(credentials);
+  login(@Body() credentials: { user: LoginDTO }) {
+    return this.authService.login(credentials.user);
   }
 }
